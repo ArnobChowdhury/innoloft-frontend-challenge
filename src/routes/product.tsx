@@ -11,9 +11,10 @@ import { ProductInfo } from "../composites";
  * 1. ////Update base styles
  * 2. Divide this huge component in to smaller pieces
  * 3. Make the menu bars at the left
- * 4. Fix overall styling
- * 5. Make the edit page
- * 6. Make the breadcrumb
+ * 4. Fix overall styling a: Check nested classes are consistent - col-span-3 should not be in a child component rather high level, increase a div if needed
+ * 5. Add all the shimmers
+ * 6. Make the edit page
+ * 7. Make the breadcrumb
  */
 
 const obj = {
