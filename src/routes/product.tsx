@@ -150,10 +150,12 @@ const Product = () => {
                 <Chip text={product.trl.name} />
               </div>
               <div className="col-span-1">
-                <p>Technology</p>
-                {product.businessModels.map((model) => (
-                  <Chip text={model.name} />
-                ))}
+                <p>Business Model</p>
+                <div>
+                  {product.businessModels.map((model) => (
+                    <Chip text={model.name} />
+                  ))}
+                </div>
                 <p>Costs</p>
                 <Chip text={product.investmentEffort} />
               </div>
