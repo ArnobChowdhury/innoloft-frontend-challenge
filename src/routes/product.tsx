@@ -4,6 +4,7 @@ import DOMPurify from "isomorphic-dompurify";
 import ReactPlayer from "react-player";
 import { Chip, Map } from "../components";
 import { ProductProps } from "../types";
+import { ProductInfo } from "../composites";
 
 /**
  * To do
@@ -106,46 +107,15 @@ const Product = () => {
       {/* <div className="bg-white">this is my first grid</div> */}
       <div>this is my first grid</div>
       <div className="col-span-3 grid grid-cols-3 space-y-5">
-        <div className="col-span-3 grid grid-cols-3 space-x-5">
-          <div className="col-span-2 border-solid border-color-gray-light bg-white border rounded-lg">
-            <div className="h-[300px] flex justify-center">
-              {product && <img src={product.picture} />}
-            </div>
-            {product && <h1>{product.name}</h1>}
-            {product && (
-              <div
-                className="whitespace-pre-wrap"
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(product.description),
-                }}
-              />
-            )}
-          </div>
-          <div className="border-solid border-gray-light bg-white border rounded-lg">
-            {product && (
-              <>
-                <h4>Offered by</h4>
-                <img src={product.company.logo} />
-                <div>{product.company.name}</div>
-                <div>
-                  {product.company.address.street}{" "}
-                  {product.company.address.house},
-                </div>
-                <div>
-                  {product.company.address.zipCode}{" "}
-                  {product.company.address.city.name}{" "}
-                  {product.company.address.country.name}
-                </div>
-                <div>
-                  <Map
-                    lat={Number(product.company.address.latitude)}
-                    lng={Number(product.company.address.longitude)}
-                  />
-                </div>
-              </>
-            )}
-          </div>
-        </div>
+        {product && (
+          <ProductInfo
+            name={product.name}
+            company={product.company}
+            description={product.description}
+            picture={product.picture}
+            user={product.user}
+          />
+        )}
         <div className="border-solid border-gray-light border rounded-lg col-span-3 p-10 flex justify-center bg-white">
           {product && <ReactPlayer url={product.video} controls={true} />}
         </div>

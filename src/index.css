@@ -16,6 +16,10 @@
   h1 {
     @apply leading-6 font-semibold text-base text-color-gray-dark
   }
+
+  h2 {
+    @apply leading-6 font-semibold text-base text-color-gray-dark
+  }
 }
 
 /* :root {
