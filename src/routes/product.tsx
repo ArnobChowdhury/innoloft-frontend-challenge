@@ -5,6 +5,16 @@ import ReactPlayer from "react-player";
 import { Chip, Map } from "../components";
 import { ProductProps } from "../types";
 
+/**
+ * To do
+ * 1. ////Update base styles
+ * 2. Divide this huge component in to smaller pieces
+ * 3. Make the menu bars at the left
+ * 4. Fix overall styling
+ * 5. Make the edit page
+ * 6. Make the breadcrumb
+ */
+
 const obj = {
   id: 6781,
   name: "LoftOS",
@@ -93,16 +103,15 @@ const Product = () => {
 
   return (
     <div className="grid grid-cols-4 container mx-auto px-10">
-      <div className="bg-white">this is my first grid</div>
+      {/* <div className="bg-white">this is my first grid</div> */}
+      <div>this is my first grid</div>
       <div className="col-span-3 grid grid-cols-3 space-y-5">
         <div className="col-span-3 grid grid-cols-3 space-x-5">
           <div className="col-span-2 border-solid border-color-gray-light bg-white border rounded-lg">
             <div className="h-[300px] flex justify-center">
               {product && <img src={product.picture} />}
             </div>
-            {product && (
-              <h3 className="text-lg text-color-gray-dark">{product.name}</h3>
-            )}
+            {product && <h1>{product.name}</h1>}
             {product && (
               <div
                 className="whitespace-pre-wrap"

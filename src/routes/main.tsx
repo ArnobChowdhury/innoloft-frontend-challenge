@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 const Naivgation = () => {
   return (
-    <div className="bg-gray-50 text-color-gray-default">
+    <div>
       <nav className="bg-gray-500">
         <div className="container mx-auto bg-red-100 px-10 flex">
           <div className="basis-1/4">Logo</div>
