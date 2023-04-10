@@ -1,11 +1,9 @@
 interface ChipProps {
-  text: String;
+  text: string;
+  tailwindClasses?: string;
 }
 
-export const Chip = ({ text }: ChipProps) => {
-  return (
-    <div className="rounded-full px-4 py-2 text-xs inline-block bg-color-gray-light max-w-[350px] text-center">
-      {text}
-    </div>
-  );
+export const Chip = ({ text, tailwindClasses }: ChipProps) => {
+  const classNames = `rounded-full px-3.5 py-1 inline-block bg-color-gray-light max-w-[350px] leading-4 text-center ${tailwindClasses}`;
+  return <div className={classNames}>{text}</div>;
 };

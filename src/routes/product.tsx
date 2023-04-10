@@ -2,12 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Chip } from "../components";
 import { ProductProps } from "../types";
-import { ProductInfo, ProductVideo } from "../composites";
+import { ProductInfo, ProductVideo, OfferDetails } from "../composites";
 
 /**
  * To do
  * 1. ////Update base styles
- * 2. Divide this huge component in to smaller pieces
+ * 2. ////Divide this huge component in to smaller pieces
  * 3. Make the menu bars at the left
  * 4. Fix overall styling a: Check nested classes are consistent - col-span-3 should not be in a child component rather high level, increase a div if needed
  * 5. Add all the shimmers
@@ -116,28 +116,14 @@ const Product = () => {
           />
         )}
         {product && <ProductVideo video={product.video} />}
-        <div className="col-span-3 p-lg mb-10 border-solid border-gray-light border rounded-lg grid grid-cols-2 space-x-4 bg-white">
-          {product && (
-            <>
-              <div className="col-span-1">
-                <p>Technology</p>
-                <Chip text={product.type.name} />
-                <p>TRL</p>
-                <Chip text={product.trl.name} />
-              </div>
-              <div className="col-span-1">
-                <p>Business Model</p>
-                <div>
-                  {product.businessModels.map((model) => (
-                    <Chip text={model.name} />
-                  ))}
-                </div>
-                <p>Costs</p>
-                <Chip text={product.investmentEffort} />
-              </div>
-            </>
-          )}
-        </div>
+        {product && (
+          <OfferDetails
+            type={product.type}
+            trl={product.trl}
+            businessModels={product.businessModels}
+            investmentEffort={product.investmentEffort}
+          />
+        )}
       </div>
     </div>
   );
