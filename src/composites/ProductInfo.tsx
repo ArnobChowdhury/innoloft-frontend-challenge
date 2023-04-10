@@ -15,7 +15,7 @@ export const ProductInfo = ({
   user,
 }: ProductInfoProps) => {
   return (
-    <div className="col-span-3 grid grid-cols-3 rounded-lg bg-white border border-color-gray-light overflow-hidden">
+    <div className="col-span-3 grid grid-cols-3 rounded-lg bg-white border border-color-gray-light">
       <div className="col-span-2 border-solid">
         <div className="h-[300px] flex justify-center">
           <img src={picture} />

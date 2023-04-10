@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import DOMPurify from "isomorphic-dompurify";
-import ReactPlayer from "react-player";
-import { Chip, Map } from "../components";
+import { Chip } from "../components";
 import { ProductProps } from "../types";
-import { ProductInfo } from "../composites";
+import { ProductInfo, ProductVideo } from "../composites";
 
 /**
  * To do
@@ -104,7 +102,7 @@ const Product = () => {
   console.log("Lat", product?.company.address.latitude);
 
   return (
-    <div className="grid grid-cols-4 container mx-auto px-10">
+    <div className="grid grid-cols-4 container mx-auto px-10 my-lg">
       {/* <div className="bg-white">this is my first grid</div> */}
       <div>this is my first grid</div>
       <div className="col-span-3 grid grid-cols-3 space-y-5">
@@ -117,10 +115,8 @@ const Product = () => {
             user={product.user}
           />
         )}
-        <div className="border-solid border-gray-light border rounded-lg col-span-3 p-10 flex justify-center bg-white">
-          {product && <ReactPlayer url={product.video} controls={true} />}
-        </div>
-        <div className="col-span-3 p-lg border-solid border-gray-light border rounded-lg grid grid-cols-2 space-x-4 bg-white">
+        {product && <ProductVideo video={product.video} />}
+        <div className="col-span-3 p-lg mb-10 border-solid border-gray-light border rounded-lg grid grid-cols-2 space-x-4 bg-white">
           {product && (
             <>
               <div className="col-span-1">
