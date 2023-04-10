@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Chip } from "../components";
 import { ProductProps } from "../types";
 import { ProductInfo, ProductVideo, OfferDetails } from "../composites";
 
@@ -8,7 +7,7 @@ import { ProductInfo, ProductVideo, OfferDetails } from "../composites";
  * To do
  * 1. ////Update base styles
  * 2. ////Divide this huge component in to smaller pieces
- * 3. Make the menu bars at the left
+ * 3. ////Make the menu bars at the left
  * 4. Fix overall styling a: Check nested classes are consistent - col-span-3 should not be in a child component rather high level, increase a div if needed
  * 5. Add all the shimmers
  * 6. Make the edit page
@@ -102,29 +101,25 @@ const Product = () => {
   console.log("Lat", product?.company.address.latitude);
 
   return (
-    <div className="grid grid-cols-4 container mx-auto px-10 my-lg">
-      {/* <div className="bg-white">this is my first grid</div> */}
-      <div>this is my first grid</div>
-      <div className="col-span-3 grid grid-cols-3 space-y-5">
-        {product && (
-          <ProductInfo
-            name={product.name}
-            company={product.company}
-            description={product.description}
-            picture={product.picture}
-            user={product.user}
-          />
-        )}
-        {product && <ProductVideo video={product.video} />}
-        {product && (
-          <OfferDetails
-            type={product.type}
-            trl={product.trl}
-            businessModels={product.businessModels}
-            investmentEffort={product.investmentEffort}
-          />
-        )}
-      </div>
+    <div className="grid grid-cols-3 space-y-5">
+      {product && (
+        <ProductInfo
+          name={product.name}
+          company={product.company}
+          description={product.description}
+          picture={product.picture}
+          user={product.user}
+        />
+      )}
+      {product && <ProductVideo video={product.video} />}
+      {product && (
+        <OfferDetails
+          type={product.type}
+          trl={product.trl}
+          businessModels={product.businessModels}
+          investmentEffort={product.investmentEffort}
+        />
+      )}
     </div>
   );
 };

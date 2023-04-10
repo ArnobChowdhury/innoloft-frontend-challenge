@@ -3,3 +3,8 @@ export { Settings } from "./Settings";
 export { Clock } from "./Clock";
 export { Knight } from "./Knight";
 export { Currency } from "./Currency";
+export { Home } from "./Home";
+export { Members } from "./Members";
+export { Organizations } from "./Organizatins";
+export { DownArrow } from "./DownArrow";
+export { Logo } from "./Logo";
