@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { ProductProps } from "../types";
 import { ProductInfo, ProductVideo, OfferDetails } from "../composites";
+import { fetchProduct } from "../store/thunks/product";
+import { useAppDispatch, useAppSelector } from "../hooks";
 
 /**
  * To do
@@ -88,17 +90,13 @@ const obj = {
 };
 
 const Product = () => {
-  const [product, setProduct] = useState<ProductProps | undefined>();
+  const dispatch = useAppDispatch();
+  const { product } = useAppSelector((state) => state.product);
+  console.log(product, "produce");
 
   useEffect(() => {
-    const url = "https://api-test.innoloft.com/product/6781/";
-    axios.get(url).then((res) => {
-      console.log(res.data);
-      setProduct(res.data);
-    });
-    console.log("This is good.\n\nAnd this is better.");
+    dispatch(fetchProduct());
   }, []);
-  console.log("Lat", product?.company.address.latitude);
 
   return (
     <div className="grid grid-cols-3 space-y-5">

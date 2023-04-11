@@ -56,7 +56,11 @@ export const OfferDetails = ({
       <Text text="Business Model" />
       <div className="-ml-1 -mb-1">
         {businessModels.map((model) => (
-          <Chip text={model.name} tailwindClasses="ml-1 mb-1" />
+          <Chip
+            text={model.name}
+            key={model.name}
+            tailwindClasses="ml-1 mb-1"
+          />
         ))}
       </div>
     </div>
