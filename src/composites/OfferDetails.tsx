@@ -93,7 +93,7 @@ export const OfferDetails = ({
   return (
     <div className="col-span-3 p-lg mb-10 border-solid border-gray-light border rounded-lg  bg-white">
       <h2 className="mb-lg">Offer details</h2>
-      <div className="space-x-4">
+      <div>
         <div className="grid grid-cols-2">
           {technologyComponent}
           {businessModelComponent}
