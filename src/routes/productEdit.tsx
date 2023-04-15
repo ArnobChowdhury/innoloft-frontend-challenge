@@ -4,7 +4,7 @@ import { ItemDetailWithIcon, MultipleChipsInput, Text } from "../components";
 import { fetchProduct } from "../store/thunks/product";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { useState } from "react";
-import { Knight, Settings } from "../icons";
+import { Knight, Settings, Currency, Clock } from "../icons";
 import ReactQuill from "react-quill";
 import { modules, formats } from "../constants/editor";
 import "react-quill/dist/quill.snow.css";
@@ -68,7 +68,7 @@ export const productEdit = () => {
                     <input
                       type="text"
                       className="w-full"
-                      // placeholder="Add a youtube or vimeo link"
+                      placeholder="e.g. Software"
                     />
                   </>
                 }
@@ -84,6 +84,28 @@ export const productEdit = () => {
                       setBusinessModels(val);
                     }}
                   />
+                }
+                tailWindClasses="grow ml-1"
+              />
+            </div>
+            <div className="grid grid-cols-2">
+              <ItemDetailWithIcon
+                icon={<Clock />}
+                items={
+                  <>
+                    <Text text="TRL" />
+                    <input type="text" className="w-full" placeholder="" />
+                  </>
+                }
+                tailWindClasses="grow mr-1"
+              />
+              <ItemDetailWithIcon
+                icon={<Currency />}
+                items={
+                  <>
+                    <Text text="Costs" />
+                    <input type="text" className="w-full" placeholder="" />
+                  </>
                 }
                 tailWindClasses="grow ml-1"
               />
