@@ -1,4 +1,4 @@
-import { Chip } from "../components";
+import { Chip, ItemDetailWithIcon, Text } from "../components";
 import { ProductProps } from "../types";
 import { Settings, Clock, Knight, Currency } from "../icons";
 
@@ -6,30 +6,6 @@ type OfferDetailsProps = Pick<
   ProductProps,
   "type" | "trl" | "businessModels" | "investmentEffort"
 >;
-
-const Text = ({ text }: { text: string }) => {
-  return <p className="mb-2.5">{text}</p>;
-};
-
-interface ItemDetailWithIconProps {
-  icon: JSX.Element;
-  items: JSX.Element;
-  tailWindClasses?: string;
-}
-
-const ItemDetailWithIcon = ({
-  icon,
-  items,
-  tailWindClasses,
-}: ItemDetailWithIconProps) => {
-  const classNames = `flex ${tailWindClasses}`;
-  return (
-    <div className={classNames}>
-      <div className="mr-2">{icon}</div>
-      <div>{items}</div>
-    </div>
-  );
-};
 
 export const OfferDetails = ({
   type,
@@ -95,7 +71,7 @@ export const OfferDetails = ({
   );
 
   return (
-    <div className="col-span-3 p-lg mb-10 border-solid border-gray-light border rounded-lg  bg-white">
+    <div className="col-span-3 p-lg mb-10 border-solid border-gray-light border rounded-md  bg-white">
       <h2 className="mb-lg">Offer details</h2>
       <div>
         <div className="grid grid-cols-2">

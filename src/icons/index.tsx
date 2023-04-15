@@ -8,3 +8,4 @@ export { Members } from "./Members";
 export { Organizations } from "./Organizatins";
 export { DownArrow } from "./DownArrow";
 export { Logo } from "./Logo";
+export { Close } from "./Close";

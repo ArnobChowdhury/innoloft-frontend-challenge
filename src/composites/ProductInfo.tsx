@@ -1,4 +1,4 @@
-import { Map, Address, User } from "../components";
+import { OfferedBy } from "./OfferedBy";
 import { ProductProps } from "../types";
 import DOMPurify from "isomorphic-dompurify";
 
@@ -15,7 +15,7 @@ export const ProductInfo = ({
   user,
 }: ProductInfoProps) => {
   return (
-    <div className="col-span-3 grid grid-cols-3 rounded-lg bg-white border border-color-gray-light">
+    <div className="col-span-3 grid grid-cols-3 rounded-md bg-white border border-color-gray-light">
       <div className="col-span-2 border-solid">
         <div className="h-[300px] flex justify-center">
           <img src={picture} />
@@ -30,18 +30,7 @@ export const ProductInfo = ({
           />
         </div>
       </div>
-      <div className="p-lg border-l border-color-gray-light">
-        <h2 className="mb-lg">Offered by</h2>
-        <img src={company.logo} className="max-w-[200px] mb-2.5" />
-        <User company={company} user={user} />
-        <Address company={company} />
-        <div>
-          <Map
-            lat={Number(company.address.latitude)}
-            lng={Number(company.address.longitude)}
-          />
-        </div>
-      </div>
+      <OfferedBy company={company} user={user} withMap />
     </div>
   );
 };

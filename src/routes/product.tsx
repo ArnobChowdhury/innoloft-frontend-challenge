@@ -1,6 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { ProductProps } from "../types";
+import { useEffect } from "react";
 import { ProductInfo, ProductVideo, OfferDetails } from "../composites";
 import { fetchProduct } from "../store/thunks/product";
 import { useAppDispatch, useAppSelector } from "../hooks";
@@ -10,9 +8,10 @@ import { useAppDispatch, useAppSelector } from "../hooks";
  * 1. ////Update base styles
  * 2. ////Divide this huge component in to smaller pieces
  * 3. ////Make the menu bars at the left
- * 4. Fix overall styling a: Check nested classes are consistent - col-span-3 should not be in a child component rather high level, increase a div if needed
+ * 4. ////Fix overall styling a: Check nested classes are consistent - col-span-3 should not be in a child component rather high level, increase a div if needed
  * 5. Add all the shimmers
  * 6. Make the edit page
+ *      - Make the multi select input
  * 7. Make the breadcrumb
  */
 
@@ -92,7 +91,6 @@ const obj = {
 const Product = () => {
   const dispatch = useAppDispatch();
   const { product } = useAppSelector((state) => state.product);
-  console.log(product, "produce");
 
   useEffect(() => {
     dispatch(fetchProduct());
