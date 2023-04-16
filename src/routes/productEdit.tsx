@@ -1,19 +1,25 @@
 import { useEffect } from "react";
 import { OfferedBy } from "../composites";
-import { ItemDetailWithIcon, MultipleChipsInput, Text } from "../components";
+import {
+  ItemDetailWithIcon,
+  MultipleChipsInput,
+  Text,
+  Select,
+} from "../components";
 import { fetchProduct } from "../store/thunks/product";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { useState } from "react";
 import { Knight, Settings, Currency, Clock } from "../icons";
 import ReactQuill from "react-quill";
-import { modules, formats } from "../constants/editor";
+import { qlModules, qlFormats, trlSelectOptions } from "../constants";
 import "react-quill/dist/quill.snow.css";
 
 export const productEdit = () => {
   const dispatch = useAppDispatch();
   const { product } = useAppSelector((state) => state.product);
-  const [value, setValue] = useState("");
+  const [qlValue, setQlValue] = useState("");
   const [businessModels, setBusinessModels] = useState<string>("");
+  const [trlValue, setTrlValue] = useState<string>("");
 
   useEffect(() => {
     dispatch(fetchProduct());
@@ -36,10 +42,10 @@ export const productEdit = () => {
                 <div>
                   <ReactQuill
                     theme="snow"
-                    value={value}
-                    onChange={setValue}
-                    formats={formats}
-                    modules={modules}
+                    value={qlValue}
+                    onChange={setQlValue}
+                    formats={qlFormats}
+                    modules={qlModules}
                   />
                 </div>
               </div>
@@ -94,7 +100,11 @@ export const productEdit = () => {
                 items={
                   <>
                     <Text text="TRL" />
-                    <input type="text" className="w-full" placeholder="" />
+                    <Select
+                      value=""
+                      options={trlSelectOptions}
+                      onChange={() => {}}
+                    />
                   </>
                 }
                 tailWindClasses="grow mr-1"

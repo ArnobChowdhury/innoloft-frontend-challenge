@@ -5,3 +5,4 @@ export { User } from "./User";
 export { ItemDetailWithIcon } from "./ItemDetailWithIcon";
 export { Text } from "./Text";
 export { MultipleChipsInput } from "./MultipleChipsInput";
+export { Select } from "./Select";

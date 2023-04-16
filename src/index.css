@@ -47,3 +47,20 @@
     @apply rounded-md border border-color-gray-light px-2.5 py-1.5 leading-6 font-normal text-sm text-color-gray-default
   }
 }
+
+@layer components {
+  .input_field {
+    @apply rounded-md border border-color-gray-light px-2.5 py-1.5 leading-6 font-normal text-sm text-color-gray-default
+  }
+}
+
+@layer utilities {
+  .custom_shadow {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+  }
+
+  .custom_appearance {
+    transition: opacity 267ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 178ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; 
+    transform-origin: bottom right;
+  }
+}
