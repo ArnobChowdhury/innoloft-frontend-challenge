@@ -6,3 +6,4 @@ export { ItemDetailWithIcon } from "./ItemDetailWithIcon";
 export { Text } from "./Text";
 export { MultipleChipsInput } from "./MultipleChipsInput";
 export { Select } from "./Select";
+export { Button } from "./Button";

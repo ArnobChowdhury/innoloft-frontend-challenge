@@ -10,6 +10,8 @@ export default {
         "color-gray-light": colors.gray["200"],
         "color-gray-default": colors.gray["500"],
         "color-gray-dark": colors.gray["700"],
+        "color-primary": "#272E71",
+        "color-primary-light": "#272E7180",
       },
       spacing: {
         lg: defaultTheme.spacing["5"],

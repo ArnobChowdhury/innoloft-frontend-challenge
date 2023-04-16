@@ -29,6 +29,7 @@
     border: 0 !important;
 }
 
+
 @layer base {
   body {
     font-family: 'Open Sans', sans-serif;
@@ -51,6 +52,38 @@
 @layer components {
   .input_field {
     @apply rounded-md border border-color-gray-light px-2.5 py-1.5 leading-6 font-normal text-sm text-color-gray-default
+  }
+
+  .loader {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}  
+
+  .btn {
+    @apply flex justify-center items-center px-2.5 py-1 bg-color-primary rounded-md disabled:opacity-50 disabled:pointer-events-none
+  }
+ 
+  .btn_primary {
+    @apply bg-color-primary text-white 
+  }
+
+  .btn_secondary {
+    @apply bg-white transition-all border hover:border-color-primary
   }
 }
 

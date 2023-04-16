@@ -5,11 +5,12 @@ import {
   MultipleChipsInput,
   Text,
   Select,
+  Button,
 } from "../components";
 import { fetchProduct } from "../store/thunks/product";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { useState } from "react";
-import { Knight, Settings, Currency, Clock } from "../icons";
+import { Knight, Settings, Currency, Clock, Check } from "../icons";
 import ReactQuill from "react-quill";
 import { qlModules, qlFormats, trlSelectOptions } from "../constants";
 import "react-quill/dist/quill.snow.css";
@@ -34,10 +35,10 @@ export const productEdit = () => {
               <div className="h-[300px] flex justify-center">
                 <img src={product.picture} className="h-full" />
               </div>
-              <div className="p-lg">
+              <div className="p-lg space-y-2.5">
                 <input
                   type="text"
-                  className="my-3 w-full font-semibold text-base text-color-gray-dark"
+                  className="w-full font-semibold text-base text-color-gray-dark"
                 />
                 <div>
                   <ReactQuill
@@ -48,6 +49,10 @@ export const productEdit = () => {
                     modules={qlModules}
                   />
                 </div>
+                <div className="flex justify-end space-x-2.5">
+                  <Button variant="secondary">Cancel</Button>
+                  <Button icon={<Check />}>Save</Button>
+                </div>
               </div>
             </div>
             <OfferedBy company={product.company} user={product.user} />
@@ -57,10 +62,10 @@ export const productEdit = () => {
             <div className="flex">
               <input
                 type="url"
-                className="grow mr-lg"
+                className="grow mr-2.5"
                 placeholder="Add a youtube or vimeo link"
               />
-              <button className="border border-black px-10">Save</button>
+              <Button icon={<Check />}>Save</Button>
             </div>
           </div>
           <div className="col-span-3 p-lg border border-color-gray-light bg-white rounded-md space-y-lg">
@@ -119,6 +124,9 @@ export const productEdit = () => {
                 }
                 tailWindClasses="grow ml-1"
               />
+            </div>
+            <div className="flex justify-end">
+              <Button icon={<Check />}>Save</Button>
             </div>
           </div>
         </div>
