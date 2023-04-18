@@ -1,3 +1,4 @@
+import { useController, UseControllerProps } from "react-hook-form";
 import {
   forwardRef,
   useRef,
@@ -8,42 +9,50 @@ import {
 } from "react";
 import { Text, Chip } from "./";
 
-interface MultipleTextInputProps {
-  value: string;
-  name?: string;
+interface MultipleTextInputProps
+  extends UseControllerProps<{ businessModels: string }> {
   id?: string;
   label: string;
-  onValueChange: (val: string) => void;
 }
 
 export const MultipleChipsInput = forwardRef<
   HTMLInputElement,
   MultipleTextInputProps
->(({ value, onValueChange, name, id, label }, ref) => {
+>((props, ref) => {
+  const { id, label, name } = props;
   const [chips, setChips] = useState<string[]>([]);
   const editableDivRef = useRef<HTMLDivElement>(null);
+
+  const { field } = useController(props);
+  const { onChange } = field;
+  const [value, setValue] = useState("");
 
   useEffect(() => {
     if (value) {
       setChips(value.split(","));
     }
-  }, []);
+  }, [value]);
 
   const performChipAdd = (div: HTMLDivElement) => {
     const val = div.textContent;
     if (val) {
-      setChips((prev) => [...prev, val]);
+      setValue((prev) => {
+        if (prev) {
+          return `${prev}, ${val}`;
+        }
+        return val;
+      });
       div.textContent = "";
     }
   };
 
-  useEffect(() => {
-    onValueChange(chips.join(","));
-  }, [chips]);
-
   const performChipRemove = (removedChip: string) => {
     setChips((prev) => prev.filter((chip) => chip !== removedChip));
   };
+
+  useEffect(() => {
+    onChange(value);
+  }, [value]);
 
   const handleChipAdd = (
     event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
@@ -63,7 +72,7 @@ export const MultipleChipsInput = forwardRef<
   return (
     <div>
       <Text text={label} />
-      <input type="hidden" value={value} ref={ref} name={name} id={id} />
+      <input type="hidden" defaultValue={value} ref={ref} name={name} id={id} />
       <div className="relative">
         <div
           contentEditable={true}
