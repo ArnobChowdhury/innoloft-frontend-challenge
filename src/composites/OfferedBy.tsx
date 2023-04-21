@@ -1,7 +1,5 @@
 import { Map, Address, User } from "../components";
-import { ProductProps } from "../types";
-
-type OfferedByPropsFromProduct = Pick<ProductProps, "company" | "user">;
+import { OfferedByPropsFromProduct } from "../types";
 
 interface OfferedByProps extends OfferedByPropsFromProduct {
   withMap?: boolean;

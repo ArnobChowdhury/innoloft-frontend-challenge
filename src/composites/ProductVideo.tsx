@@ -1,7 +1,5 @@
 import ReactPlayer from "react-player";
-import { ProductProps } from "../types";
-
-type ProductVideoProps = Pick<ProductProps, "video">;
+import { ProductVideoProps } from "../types";
 
 export const ProductVideo = ({ video }: ProductVideoProps) => {
   return (

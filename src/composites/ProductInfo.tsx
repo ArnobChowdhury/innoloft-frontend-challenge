@@ -1,11 +1,6 @@
 import { OfferedBy } from "./OfferedBy";
-import { ProductProps } from "../types";
+import { ProductInfoProps } from "../types";
 import DOMPurify from "isomorphic-dompurify";
-
-type ProductInfoProps = Pick<
-  ProductProps,
-  "picture" | "description" | "name" | "company" | "user"
->;
 
 export const ProductInfo = ({
   picture,

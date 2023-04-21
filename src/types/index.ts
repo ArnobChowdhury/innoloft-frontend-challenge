@@ -49,3 +49,17 @@ export interface ProductProps {
     name: string;
   }[];
 }
+
+export type OfferDetailsProps = Pick<
+  ProductProps,
+  "type" | "trl" | "businessModels" | "investmentEffort"
+>;
+
+export type OfferedByPropsFromProduct = Pick<ProductProps, "company" | "user">;
+
+export type ProductInfoProps = Pick<
+  ProductProps,
+  "picture" | "description" | "name" | "company" | "user"
+>;
+
+export type ProductVideoProps = Pick<ProductProps, "video">;

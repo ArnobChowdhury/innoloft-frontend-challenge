@@ -1,11 +1,6 @@
 import { Chip, ItemDetailWithIcon, Text } from "../components";
-import { ProductProps } from "../types";
+import { OfferDetailsProps } from "../types";
 import { Settings, Clock, Knight, Currency } from "../icons";
-
-type OfferDetailsProps = Pick<
-  ProductProps,
-  "type" | "trl" | "businessModels" | "investmentEffort"
->;
 
 export const OfferDetails = ({
   type,
