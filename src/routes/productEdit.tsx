@@ -1,21 +1,13 @@
 import { useEffect } from "react";
-import {
-  ItemDetailWithIcon,
-  MultipleChipsInput,
-  Text,
-  Select,
-  Button,
-} from "../components";
 import { fetchProduct } from "../store/thunks/product";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { useState } from "react";
-import { Knight, Settings, Currency, Clock, Check } from "../icons";
-import { trlSelectOptions } from "../constants";
 import "react-quill/dist/quill.snow.css";
 import {
   EditProductInfo,
   EditProductVideo,
   EditOfferDetails,
+  Shimmer,
 } from "../composites";
 
 export const productEdit = () => {
@@ -30,6 +22,7 @@ export const productEdit = () => {
 
   return (
     <div className="space-y-5">
+      {!product && <Shimmer />}
       {product && (
         <div className="grid grid-cols-3 space-y-lg">
           <EditProductInfo

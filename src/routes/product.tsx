@@ -1,5 +1,10 @@
 import { useEffect } from "react";
-import { ProductInfo, ProductVideo, OfferDetails } from "../composites";
+import {
+  ProductInfo,
+  ProductVideo,
+  OfferDetails,
+  Shimmer,
+} from "../composites";
 import { fetchProduct } from "../store/thunks/product";
 import { useAppDispatch, useAppSelector } from "../hooks";
 
@@ -29,23 +34,24 @@ const Product = () => {
 
   return (
     <div className="grid grid-cols-3 space-y-5">
+      {!product && <Shimmer />}
       {product && (
-        <ProductInfo
-          name={product.name}
-          company={product.company}
-          description={product.description}
-          picture={product.picture}
-          user={product.user}
-        />
-      )}
-      {product && <ProductVideo video={product.video} />}
-      {product && (
-        <OfferDetails
-          type={product.type}
-          trl={product.trl}
-          businessModels={product.businessModels}
-          investmentEffort={product.investmentEffort}
-        />
+        <>
+          <ProductInfo
+            name={product.name}
+            company={product.company}
+            description={product.description}
+            picture={product.picture}
+            user={product.user}
+          />
+          <ProductVideo video={product.video} />
+          <OfferDetails
+            type={product.type}
+            trl={product.trl}
+            businessModels={product.businessModels}
+            investmentEffort={product.investmentEffort}
+          />
+        </>
       )}
     </div>
   );
