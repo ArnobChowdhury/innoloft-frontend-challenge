@@ -8,7 +8,7 @@ import {
   EditOfferDetails,
   Shimmer,
 } from "../composites";
-import { EditOfferDetailsProps } from "../types";
+import { EditOfferDetailsProps, ProductVideoProps } from "../types";
 
 export const productEdit = () => {
   const dispatch = useAppDispatch();
@@ -24,7 +24,9 @@ export const productEdit = () => {
 
   const loading = productLoading || trlListLoading;
 
-  const handleSubmission = (data: EditOfferDetailsProps) => {
+  const handleSubmission = (
+    data: EditOfferDetailsProps | ProductVideoProps
+  ) => {
     if (product) dispatch(updateProduct(product?.id, data));
   };
 
@@ -38,7 +40,7 @@ export const productEdit = () => {
             company={product.company}
             user={product.user}
           />
-          <EditProductVideo video={product.video} />
+          <EditProductVideo onSubmit={handleSubmission} video={product.video} />
           <EditOfferDetails
             businessModels={product.businessModels}
             investmentEffort={product.investmentEffort}

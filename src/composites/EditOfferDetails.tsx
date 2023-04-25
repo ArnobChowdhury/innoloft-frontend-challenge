@@ -3,7 +3,6 @@ import { ItemDetailWithIcon } from "../components";
 import { Text, Button, Select, MultipleChipsInput } from "../components";
 import { Settings, Knight, Clock, Check, Currency } from "../icons";
 import { TRLProps, EditOfferDetailsProps } from "../types";
-import { useEffect } from "react";
 
 type EditOfferDetailsComponentProps = EditOfferDetailsProps & {
   trlList: TRLProps[];
@@ -25,13 +24,9 @@ export const EditOfferDetails = (props: EditOfferDetailsComponentProps) => {
     defaultValues: { businessModels, investmentEffort, trl, type },
   });
 
-  const onFormSubmit = (data: EditOfferDetailsProps) => {
-    onSubmit(data);
-  };
-
   return (
     <div className="col-span-3 p-lg border border-color-gray-light bg-white rounded-md space-y-lg">
-      <form onSubmit={handleSubmit(onFormSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <h2 className="mb-lg">Offer details</h2>
         <div className="grid grid-cols-2 mb-lg">
           <ItemDetailWithIcon

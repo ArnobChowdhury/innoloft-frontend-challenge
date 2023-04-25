@@ -6,7 +6,11 @@ import {
   productUpdateError,
   productUpdateSuccessful,
 } from "../slices/product";
-import { ProductProps, EditOfferDetailsProps } from "../../types";
+import {
+  ProductProps,
+  EditOfferDetailsProps,
+  ProductVideoProps,
+} from "../../types";
 import axios from "axios";
 
 export const fetchProduct = () => async (dispatch: any) => {
@@ -21,7 +25,8 @@ export const fetchProduct = () => async (dispatch: any) => {
 };
 
 export const updateProduct =
-  (id: number, data: EditOfferDetailsProps) => async (dispatch: any) => {
+  (id: number, data: EditOfferDetailsProps | ProductVideoProps) =>
+  async (dispatch: any) => {
     try {
       dispatch(productIsUpdating());
       const productUpdateUrl = `https://api-test.innoloft.com/product/${id}/`;
