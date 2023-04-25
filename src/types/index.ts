@@ -1,22 +1,22 @@
+export interface IDNameProps {
+  id: number;
+  name: string;
+}
+
+export type TRLProps = IDNameProps & {
+  description?: string | null;
+};
+
 export interface ProductProps {
   id: number;
   name: string;
   description: string;
   picture: string;
-  type: {
-    id: number;
-    name: string;
-  };
-  categories: {
-    id: number;
-    name: string;
-  }[];
+  type: IDNameProps;
+  categories: IDNameProps[];
   implementationEffortText: null;
   investmentEffort: string;
-  trl: {
-    id: number;
-    name: string;
-  };
+  trl: TRLProps;
   video: string;
   user: {
     id: number;
@@ -44,10 +44,7 @@ export interface ProductProps {
       latitude: string;
     };
   };
-  businessModels: {
-    id: number;
-    name: string;
-  }[];
+  businessModels: IDNameProps[];
 }
 
 export type OfferDetailsProps = Pick<
@@ -63,3 +60,7 @@ export type ProductInfoProps = Pick<
 >;
 
 export type ProductVideoProps = Pick<ProductProps, "video">;
+
+export interface EditOfferDetailsProps extends Omit<OfferDetailsProps, "type"> {
+  type: string;
+}

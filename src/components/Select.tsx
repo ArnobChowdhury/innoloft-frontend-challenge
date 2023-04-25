@@ -1,23 +1,29 @@
-import { forwardRef, useState, MouseEvent, useEffect, useRef } from "react";
+import { forwardRef, useState, MouseEvent, useEffect } from "react";
+import { useController, UseControllerProps } from "react-hook-form";
 import { createPortal } from "react-dom";
 import { usePopper } from "react-popper";
 import { DownArrow } from "../icons";
 import { getScrollbarWidth } from "../utils";
+import { EditOfferDetailsProps, TRLProps } from "../types";
 
-interface SelectProps {
-  value: string;
-  onChange: () => void;
-  options: string[];
+interface SelectProps extends UseControllerProps<EditOfferDetailsProps> {
+  options: TRLProps[];
+  value: TRLProps;
 }
 
 export const Select = forwardRef<HTMLInputElement, SelectProps>(
-  ({ value, onChange, options }: SelectProps, ref) => {
+  (props: SelectProps, ref) => {
+    const { options, value, name } = props;
     const [referenceElement, setReferenceElement] =
       useState<HTMLDivElement | null>(null);
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
       null
     );
     const { styles, attributes } = usePopper(referenceElement, popperElement);
+    const { field } = useController(props);
+    const { onChange } = field;
+
+    const [selected, setSelected] = useState(value);
 
     const [showDropDown, setShowDropDown] = useState(false);
     const [dropDownOpacity, setDropDownOpacity] = useState("opacity-0");
@@ -25,6 +31,20 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     const toggleDropDown = (e: MouseEvent<HTMLDivElement>) => {
       setShowDropDown(!showDropDown);
     };
+
+    const handleSelection = (
+      e: MouseEvent<HTMLDivElement>,
+      option: TRLProps
+    ) => {
+      setSelected(option);
+      toggleDropDown(e);
+    };
+
+    useEffect(() => {
+      if (selected) {
+        onChange(selected);
+      }
+    }, [selected]);
 
     useEffect(() => {
       const closeDropdownOnClickOutside = (event: globalThis.MouseEvent) => {
@@ -77,9 +97,12 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
     return (
       <div ref={setReferenceElement} className="relative">
-        <input type="hidden" value={value} ref={ref} />
-        <div onClick={toggleDropDown} className="input_field cursor-pointer">
-          {value || <span className="opacity-70">Select one</span>}
+        <input name={name} type="hidden" value={value.name} ref={ref} />
+        <div
+          onClick={toggleDropDown}
+          className="input_field cursor-pointer pr-8"
+        >
+          {selected?.name || <span className="opacity-70">Select one</span>}
         </div>
         <div
           className="absolute top-2/4 right-2.5 -translate-y-2/4 cursor-pointer"
@@ -97,20 +120,24 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
               id="dropdown"
             >
               <div
-                className={`custom_shadow bg-white rounded-md custom_appearance ${dropDownOpacity}`}
+                className={`custom_shadow bg-white rounded-md max-h-[400px] overflow-y-scroll custom_appearance ${dropDownOpacity}`}
               >
                 {options.map((option) => {
                   let classNames =
                     "py-lg hover:bg-color-gray-light px-6 cursor-pointer border";
-                  if (option === value) {
+                  if (Number(option.id) === Number(selected.id)) {
                     classNames = `${classNames} bg-gray-100 border-color-gray-light`;
                   } else {
                     classNames = `${classNames} border-transparent`;
                   }
 
                   return (
-                    <div className={classNames} key={option}>
-                      {option}
+                    <div
+                      className={classNames}
+                      key={option.id}
+                      onClick={(e) => handleSelection(e, option)}
+                    >
+                      {option.name}
                     </div>
                   );
                 })}

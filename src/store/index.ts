@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productReducer from "./slices/product";
+import trllistReducer from "./slices/trllist";
 
 const store = configureStore({
   reducer: {
     product: productReducer,
+    trllist: trllistReducer,
   },
 });
 
