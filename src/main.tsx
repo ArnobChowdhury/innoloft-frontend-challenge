@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Main from "./routes/main";
-import Product from "./routes/product";
-import ProductEdit from "./routes/productEdit";
+import Main from "./routes/Main";
+import Product from "./routes/Product";
+import ProductEdit from "./routes/ProductEdit";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import store from "./store";
 import { Provider } from "react-redux";
