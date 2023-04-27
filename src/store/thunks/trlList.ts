@@ -1,8 +1,4 @@
-import {
-  trlListLoadSuccessful,
-  trlListLoading,
-  trlListLoadError,
-} from "../slices/trllist";
+import { trlListLoadSuccessful, trlListLoading, trlListLoadError } from "../slices/trllist";
 import axios from "axios";
 import { TRLProps } from "../../types";
 

@@ -32,7 +32,6 @@ export const trlListSlice = createSlice({
   },
 });
 
-export const { trlListLoading, trlListLoadError, trlListLoadSuccessful } =
-  trlListSlice.actions;
+export const { trlListLoading, trlListLoadError, trlListLoadSuccessful } = trlListSlice.actions;
 
 export default trlListSlice.reducer;

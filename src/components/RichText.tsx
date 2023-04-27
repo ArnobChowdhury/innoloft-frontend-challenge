@@ -10,13 +10,13 @@ type RichTextProps = UseControllerProps<EditProductInfoProps> & {
 };
 
 export const RichText = forwardRef<ReactQuill, RichTextProps>((props, ref) => {
-  const { initialValue, resetQuill } = props;
+  const { initialValue } = props;
   const { field } = useController(props);
   const { onChange } = field;
 
   return (
     <ReactQuill
-      theme="snow"
+      theme='snow'
       defaultValue={initialValue}
       onChange={onChange}
       formats={qlFormats}
@@ -25,3 +25,5 @@ export const RichText = forwardRef<ReactQuill, RichTextProps>((props, ref) => {
     />
   );
 });
+
+RichText.displayName = "RichText";

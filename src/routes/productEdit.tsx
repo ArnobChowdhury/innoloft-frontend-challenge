@@ -8,19 +8,10 @@ import {
 } from "../store/thunks";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import "react-quill/dist/quill.snow.css";
-import {
-  EditProductInfo,
-  EditProductVideo,
-  EditOfferDetails,
-  Shimmer,
-} from "../composites";
-import {
-  EditOfferDetailsProps,
-  ProductVideoProps,
-  EditProductInfoProps,
-} from "../types";
+import { EditProductInfo, EditProductVideo, EditOfferDetails, Shimmer } from "../composites";
+import { EditOfferDetailsProps, ProductVideoProps, EditProductInfoProps } from "../types";
 
-export const productEdit = () => {
+export const ProductEdit = () => {
   const dispatch = useAppDispatch();
   const {
     product,
@@ -34,7 +25,7 @@ export const productEdit = () => {
   useEffect(() => {
     dispatch(fetchProduct());
     dispatch(fetchTrlList());
-  }, []);
+  }, [dispatch]);
 
   const loading = productLoading || trlListLoading;
 
@@ -51,10 +42,10 @@ export const productEdit = () => {
   };
 
   return (
-    <div className="space-y-5">
+    <div className='space-y-5'>
       {loading && <Shimmer />}
       {!loading && product && trlList && (
-        <div className="grid grid-cols-3 space-y-lg">
+        <div className='grid grid-cols-3 space-y-lg'>
           <EditProductInfo
             picture={product.picture}
             company={product.company}
@@ -84,4 +75,4 @@ export const productEdit = () => {
   );
 };
 
-export default productEdit;
+export default ProductEdit;

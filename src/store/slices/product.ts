@@ -48,10 +48,7 @@ export const productSlice = createSlice({
       state.productInfoUpdating = false;
       state.productInfoUpdateError = true;
     },
-    productInfoUpdateSuccessful: (
-      state,
-      action: PayloadAction<ProductProps>
-    ) => {
+    productInfoUpdateSuccessful: (state, action: PayloadAction<ProductProps>) => {
       state.productInfoUpdating = false;
       state.productInfoUpdateError = false;
       state.product = action.payload;
@@ -63,10 +60,7 @@ export const productSlice = createSlice({
       state.productVideoUpdating = false;
       state.productVideoUpdateError = true;
     },
-    productVideoUpdateSuccessful: (
-      state,
-      action: PayloadAction<ProductProps>
-    ) => {
+    productVideoUpdateSuccessful: (state, action: PayloadAction<ProductProps>) => {
       state.productVideoUpdating = false;
       state.productVideoUpdateError = false;
       state.product = action.payload;
@@ -78,10 +72,7 @@ export const productSlice = createSlice({
       state.productOfferDetailsUpdating = false;
       state.productOfferDetailsUpdateError = true;
     },
-    productOfferDetailsUpdateSuccessful: (
-      state,
-      action: PayloadAction<ProductProps>
-    ) => {
+    productOfferDetailsUpdateSuccessful: (state, action: PayloadAction<ProductProps>) => {
       state.productOfferDetailsUpdating = false;
       state.productOfferDetailsUpdateError = false;
       state.product = action.payload;

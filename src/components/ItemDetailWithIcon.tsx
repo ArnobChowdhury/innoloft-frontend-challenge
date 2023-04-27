@@ -4,16 +4,12 @@ interface ItemDetailWithIconProps {
   tailWindClasses?: string;
 }
 
-export const ItemDetailWithIcon = ({
-  icon,
-  items,
-  tailWindClasses,
-}: ItemDetailWithIconProps) => {
+export const ItemDetailWithIcon = ({ icon, items, tailWindClasses }: ItemDetailWithIconProps) => {
   const classNames = `flex ${tailWindClasses}`;
   return (
     <div className={classNames}>
-      <div className="mr-2">{icon}</div>
-      <div className="grow">{items}</div>
+      <div className='mr-2'>{icon}</div>
+      <div className='grow'>{items}</div>
     </div>
   );
 };

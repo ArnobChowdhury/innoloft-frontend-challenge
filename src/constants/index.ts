@@ -1,18 +1,8 @@
 export const qlModules = {
   toolbar: [
     ["bold", "italic", "underline", "blockquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    [
-      { align: "" },
-      { align: "center" },
-      { align: "right" },
-      { align: "justify" },
-    ],
+    [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
+    [{ align: "" }, { align: "center" }, { align: "right" }, { align: "justify" }],
     ["link", "image"],
     ["clean"],
   ],

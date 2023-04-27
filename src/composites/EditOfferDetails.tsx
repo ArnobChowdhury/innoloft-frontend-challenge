@@ -25,78 +25,69 @@ export const EditOfferDetails = (props: EditOfferDetailsComponentProps) => {
   });
 
   return (
-    <div className="col-span-3 p-lg border border-color-gray-light bg-white rounded-md space-y-lg">
+    <div className='col-span-3 p-lg border border-color-gray-light bg-white rounded-md space-y-lg'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Offer details</h2>
-        <div className="grid grid-cols-2 mb-lg">
+        <div className='grid grid-cols-2 mb-lg'>
           <ItemDetailWithIcon
             icon={<Settings />}
             items={
               <>
-                <Text text="Technology" />
+                <Text text='Technology' />
                 <input
-                  type="text"
-                  className="w-full"
-                  placeholder="e.g. Software"
+                  type='text'
+                  className='w-full'
+                  placeholder='e.g. Software'
                   disabled={isSubmitting}
                   {...register("type")}
                 />
               </>
             }
-            tailWindClasses="grow mr-1"
+            tailWindClasses='grow mr-1'
           />
           <ItemDetailWithIcon
             icon={<Knight />}
             items={
               <MultipleChipsInput
-                label="Business Models"
+                label='Business Models'
                 control={control}
-                name="businessModels"
+                name='businessModels'
                 defaultChips={businessModels}
               />
             }
-            tailWindClasses="grow ml-1"
+            tailWindClasses='grow ml-1'
           />
         </div>
-        <div className="grid grid-cols-2 mb-lg">
+        <div className='grid grid-cols-2 mb-lg'>
           <ItemDetailWithIcon
             icon={<Clock />}
             items={
               <>
-                <Text text="TRL" />
-                <Select
-                  value={trl}
-                  control={control}
-                  options={trlList}
-                  name="trl"
-                />
+                <Text text='TRL' />
+                <Select value={trl} control={control} options={trlList} name='trl' />
               </>
             }
-            tailWindClasses="grow mr-1"
+            tailWindClasses='grow mr-1'
           />
           <ItemDetailWithIcon
             icon={<Currency />}
             items={
               <>
-                <Text text="Costs" />
+                <Text text='Costs' />
                 <input
-                  type="text"
-                  className="w-full"
-                  placeholder=""
+                  type='text'
+                  className='w-full'
+                  placeholder=''
                   {...register("investmentEffort")}
                   disabled={isSubmitting}
                 />
               </>
             }
-            tailWindClasses="grow ml-1"
+            tailWindClasses='grow ml-1'
           />
         </div>
-        <div className="flex justify-end">
-          <Button
-            loading={isSubmitting}
-            disabled={isSubmitting}
-            icon={<Check />}
-          >
+        <div className='flex justify-end'>
+          <Button loading={isSubmitting} disabled={isSubmitting} icon={<Check />}>
             Save
           </Button>
         </div>

@@ -8,15 +8,15 @@
 }
 
 .quill {
-  @apply border border-color-gray-light rounded-md
+  @apply border border-color-gray-light rounded-md;
 }
 
 .quill > .ql-toolbar {
   border: 0 !important;
 }
 
-.quill > .ql-toolbar > .ql-formats  {
-  margin-right: 0 !important; 
+.quill > .ql-toolbar > .ql-formats {
+  margin-right: 0 !important;
 }
 
 .quill > .ql-toolbar > .ql-formats > button {
@@ -25,45 +25,44 @@
 }
 
 .quill > .ql-container {
-    height: 160px !important;
-    border: 0 !important;
+  height: 160px !important;
+  border: 0 !important;
 }
 
 .quill > .ql-container > .ql-editor {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px; 
-    line-height: 24px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
 }
-
 
 @layer base {
   body {
-    font-family: 'Open Sans', sans-serif;
-    @apply leading-6 font-normal text-sm text-color-gray-default bg-gray-50
-  }  
- 
+    font-family: "Open Sans", sans-serif;
+    @apply leading-6 font-normal text-sm text-color-gray-default bg-gray-50;
+  }
+
   h1 {
-    @apply leading-6 font-semibold text-base text-color-gray-dark
+    @apply leading-6 font-semibold text-base text-color-gray-dark;
   }
 
   h2 {
-    @apply leading-6 font-semibold text-base text-color-gray-dark mb-lg
+    @apply leading-6 font-semibold text-base text-color-gray-dark mb-lg;
   }
 
   input {
-    @apply rounded-md border border-color-gray-light px-2.5 py-1.5 leading-6 font-normal text-sm text-color-gray-default
+    @apply rounded-md border border-color-gray-light px-2.5 py-1.5 leading-6 font-normal text-sm text-color-gray-default;
   }
 }
 
 @layer components {
   .input_field {
-    @apply rounded-md border border-color-gray-light px-2.5 py-1.5 leading-6 font-normal text-sm text-color-gray-default
+    @apply rounded-md border border-color-gray-light px-2.5 py-1.5 leading-6 font-normal text-sm text-color-gray-default;
   }
 
   .loader {
     width: 16px;
     height: 16px;
-    border: 2px solid #FFF;
+    border: 2px solid #fff;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
@@ -73,38 +72,38 @@
 
   @keyframes rotation {
     0% {
-        transform: rotate(0deg);
+      transform: rotate(0deg);
     }
     100% {
-        transform: rotate(360deg);
+      transform: rotate(360deg);
     }
-  }  
+  }
 
   .btn {
-    @apply flex justify-center items-center px-2.5 py-1 bg-color-primary/80 rounded-md disabled:opacity-50 disabled:pointer-events-none
+    @apply flex justify-center items-center px-2.5 py-1 bg-color-primary/80 rounded-md disabled:opacity-50 disabled:pointer-events-none;
   }
- 
+
   .btn_primary {
-    @apply bg-color-primary/80 text-white 
+    @apply bg-color-primary/80 text-white;
   }
 
   .btn_secondary {
-    @apply bg-white transition-all border hover:border-color-primary
+    @apply bg-white transition-all border hover:border-color-primary;
   }
 
   .shimmer {
     background: #f6f7f8;
     background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
     background-repeat: no-repeat;
-    position: relative; 
-    
+    position: relative;
+
     animation-duration: 1s;
-    animation-fill-mode: forwards; 
+    animation-fill-mode: forwards;
     animation-iteration-count: infinite;
     animation-name: placeholderShimmer;
     animation-timing-function: linear;
     -webkit-animation-duration: 1s;
-    -webkit-animation-fill-mode: forwards; 
+    -webkit-animation-fill-mode: forwards;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-name: placeholderShimmer;
     -webkit-animation-timing-function: linear;
@@ -114,20 +113,22 @@
     0% {
       background-position: -468px 0;
     }
-    
+
     100% {
-      background-position: 468px 0; 
+      background-position: 468px 0;
     }
   }
 }
 
 @layer utilities {
   .custom_shadow {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px,
+      rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
   }
 
   .custom_appearance {
-    transition: opacity 267ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 178ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; 
+    transition: opacity 267ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      transform 178ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     transform-origin: bottom right;
   }
 }

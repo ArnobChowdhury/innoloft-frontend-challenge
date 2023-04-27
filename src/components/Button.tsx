@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes } from "react";
 import { Loader } from "../icons";
 
 interface ButtonProps {
-  children: String;
+  children: string;
   disabled?: boolean;
   icon?: JSX.Element;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
@@ -29,15 +29,10 @@ export const Button = ({
   }
 
   return (
-    <button
-      type={type}
-      disabled={disabled}
-      className={classNames}
-      onClick={onClick}
-    >
-      {icon && !loading && <span className="mr-1.5">{icon}</span>}
+    <button type={type} disabled={disabled} className={classNames} onClick={onClick}>
+      {icon && !loading && <span className='mr-1.5'>{icon}</span>}
       {loading && (
-        <span className="mr-1.5 h-4 w-4">
+        <span className='mr-1.5 h-4 w-4'>
           <Loader />
         </span>
       )}
