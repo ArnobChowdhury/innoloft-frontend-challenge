@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
 import {
   fetchProduct,
   fetchTrlList,
@@ -8,6 +9,7 @@ import {
 } from "../store/thunks";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import "react-quill/dist/quill.snow.css";
+import { BreadCrumb } from "../components";
 import { EditProductInfo, EditProductVideo, EditOfferDetails, Shimmer } from "../composites";
 import { EditOfferDetailsProps, ProductVideoProps, EditProductInfoProps } from "../types";
 
@@ -21,6 +23,7 @@ export const ProductEdit = () => {
     productOfferDetailsUpdating,
   } = useAppSelector((state) => state.product);
   const { trlList, trlListLoading } = useAppSelector((state) => state.trllist);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     dispatch(fetchProduct());
@@ -43,6 +46,12 @@ export const ProductEdit = () => {
 
   return (
     <div className='space-y-5'>
+      <div className='flex justify-between col-span-3'>
+        <BreadCrumb location={pathname} />
+        <Link to='/product' className='btn btn_primary bg-color-primary'>
+          View Offer
+        </Link>
+      </div>
       {loading && <Shimmer />}
       {!loading && product && trlList && (
         <div className='grid grid-cols-3 space-y-lg'>

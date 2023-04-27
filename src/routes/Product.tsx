@@ -1,7 +1,9 @@
 import { useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
 import { ProductInfo, ProductVideo, OfferDetails, Shimmer } from "../composites";
 import { fetchProduct } from "../store/thunks";
 import { useAppDispatch, useAppSelector } from "../hooks";
+import { BreadCrumb } from "../components";
 
 /**
  * To do
@@ -24,12 +26,20 @@ const Product = () => {
   const dispatch = useAppDispatch();
   const { product } = useAppSelector((state) => state.product);
 
+  const location = useLocation();
+
   useEffect(() => {
     dispatch(fetchProduct());
   }, [dispatch]);
 
   return (
     <div className='grid grid-cols-3 space-y-5'>
+      <div className='flex justify-between col-span-3'>
+        <BreadCrumb location={location.pathname} />
+        <Link to='/product/edit' className='btn btn_primary bg-color-primary'>
+          Edit
+        </Link>
+      </div>
       {!product && <Shimmer />}
       {product && (
         <>

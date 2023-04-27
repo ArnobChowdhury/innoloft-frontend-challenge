@@ -32,7 +32,6 @@ export const MultipleChipsInput = (props: MultipleTextInputProps) => {
   };
 
   useEffect(() => {
-    console.log(chips);
     onChange(chips);
   }, [chips, onChange]);
 
