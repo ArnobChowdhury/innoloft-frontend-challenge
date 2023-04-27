@@ -4,12 +4,14 @@ import { useForm } from "react-hook-form";
 import { ProductVideoProps } from "../types";
 
 type EditProductVideoProps = ProductVideoProps & {
+  isSubmitting: boolean;
   onSubmit: (data: ProductVideoProps) => void;
 };
 
 export const EditProductVideo = ({
   video,
   onSubmit,
+  isSubmitting,
 }: EditProductVideoProps) => {
   const { register, handleSubmit } = useForm<ProductVideoProps>({
     defaultValues: { video },
@@ -25,8 +27,11 @@ export const EditProductVideo = ({
             className="grow mr-2.5"
             placeholder="Add a youtube or vimeo link"
             {...register("video")}
+            disabled={isSubmitting}
           />
-          <Button icon={<Check />}>Save</Button>
+          <Button loading={isSubmitting} icon={<Check />}>
+            Save
+          </Button>
         </div>
       </form>
     </div>

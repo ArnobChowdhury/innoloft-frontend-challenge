@@ -8,7 +8,7 @@ interface OfferedByProps extends OfferedByPropsFromProduct {
 export const OfferedBy = ({ company, user, withMap }: OfferedByProps) => {
   return (
     <div className="p-lg border-l border-color-gray-light">
-      <h2 className="mb-lg max-w-[200px] w-[200px]">Offered by</h2>
+      <h2>Offered by</h2>
       <img src={company.logo} className="mb-2.5" />
       <User company={company} user={user} />
       <Address company={company} />

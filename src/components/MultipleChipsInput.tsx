@@ -1,7 +1,7 @@
-import { useController, UseControllerProps } from "react-hook-form";
-import { useRef, useEffect, useState, MouseEvent, KeyboardEvent } from "react";
 import { Text, Chip } from "./";
 import { EditOfferDetailsProps } from "../types";
+import { useController, UseControllerProps } from "react-hook-form";
+import { useRef, useEffect, useState, MouseEvent, KeyboardEvent } from "react";
 
 interface MultipleTextInputProps
   extends UseControllerProps<EditOfferDetailsProps> {

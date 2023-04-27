@@ -64,3 +64,8 @@ export type ProductVideoProps = Pick<ProductProps, "video">;
 export interface EditOfferDetailsProps extends Omit<OfferDetailsProps, "type"> {
   type: string;
 }
+
+export type EditProductInfoProps = {
+  name: string;
+  description: string;
+};

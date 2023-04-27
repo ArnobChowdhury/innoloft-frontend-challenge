@@ -29,6 +29,12 @@
     border: 0 !important;
 }
 
+.quill > .ql-container > .ql-editor {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px; 
+    line-height: 24px;
+}
+
 
 @layer base {
   body {
@@ -41,7 +47,7 @@
   }
 
   h2 {
-    @apply leading-6 font-semibold text-base text-color-gray-dark
+    @apply leading-6 font-semibold text-base text-color-gray-dark mb-lg
   }
 
   input {
@@ -75,11 +81,11 @@
   }  
 
   .btn {
-    @apply flex justify-center items-center px-2.5 py-1 bg-color-primary rounded-md disabled:opacity-50 disabled:pointer-events-none
+    @apply flex justify-center items-center px-2.5 py-1 bg-color-primary/80 rounded-md disabled:opacity-50 disabled:pointer-events-none
   }
  
   .btn_primary {
-    @apply bg-color-primary text-white 
+    @apply bg-color-primary/80 text-white 
   }
 
   .btn_secondary {

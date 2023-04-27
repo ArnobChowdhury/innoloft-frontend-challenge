@@ -1,3 +1,7 @@
-export { fetchProduct } from "./product";
-export { updateProduct } from "./product";
+export {
+  fetchProduct,
+  updateProductInfo,
+  updateProductOfferDetails,
+  updateProductVideo,
+} from "./product";
 export { fetchTrlList } from "./trlList";

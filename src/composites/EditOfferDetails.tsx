@@ -27,7 +27,7 @@ export const EditOfferDetails = (props: EditOfferDetailsComponentProps) => {
   return (
     <div className="col-span-3 p-lg border border-color-gray-light bg-white rounded-md space-y-lg">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="mb-lg">Offer details</h2>
+        <h2>Offer details</h2>
         <div className="grid grid-cols-2 mb-lg">
           <ItemDetailWithIcon
             icon={<Settings />}
@@ -38,6 +38,7 @@ export const EditOfferDetails = (props: EditOfferDetailsComponentProps) => {
                   type="text"
                   className="w-full"
                   placeholder="e.g. Software"
+                  disabled={isSubmitting}
                   {...register("type")}
                 />
               </>
@@ -83,6 +84,7 @@ export const EditOfferDetails = (props: EditOfferDetailsComponentProps) => {
                   className="w-full"
                   placeholder=""
                   {...register("investmentEffort")}
+                  disabled={isSubmitting}
                 />
               </>
             }

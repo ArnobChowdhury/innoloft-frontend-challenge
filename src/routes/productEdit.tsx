@@ -1,5 +1,11 @@
-import { useEffect, useState } from "react";
-import { fetchProduct, fetchTrlList, updateProduct } from "../store/thunks";
+import { useEffect } from "react";
+import {
+  fetchProduct,
+  fetchTrlList,
+  updateProductInfo,
+  updateProductOfferDetails,
+  updateProductVideo,
+} from "../store/thunks";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import "react-quill/dist/quill.snow.css";
 import {
@@ -8,13 +14,21 @@ import {
   EditOfferDetails,
   Shimmer,
 } from "../composites";
-import { EditOfferDetailsProps, ProductVideoProps } from "../types";
+import {
+  EditOfferDetailsProps,
+  ProductVideoProps,
+  EditProductInfoProps,
+} from "../types";
 
 export const productEdit = () => {
   const dispatch = useAppDispatch();
-  const { product, productLoading, productUpdating } = useAppSelector(
-    (state) => state.product
-  );
+  const {
+    product,
+    productLoading,
+    productInfoUpdating,
+    productVideoUpdating,
+    productOfferDetailsUpdating,
+  } = useAppSelector((state) => state.product);
   const { trlList, trlListLoading } = useAppSelector((state) => state.trllist);
 
   useEffect(() => {
@@ -24,10 +38,16 @@ export const productEdit = () => {
 
   const loading = productLoading || trlListLoading;
 
-  const handleSubmission = (
-    data: EditOfferDetailsProps | ProductVideoProps
-  ) => {
-    if (product) dispatch(updateProduct(product?.id, data));
+  const handleInfoSubmission = (data: EditProductInfoProps) => {
+    if (product) dispatch(updateProductInfo(product?.id, data));
+  };
+
+  const handleVideoSubmission = (data: ProductVideoProps) => {
+    if (product) dispatch(updateProductVideo(product?.id, data));
+  };
+
+  const handleOfferDetailsSubmission = (data: EditOfferDetailsProps) => {
+    if (product) dispatch(updateProductOfferDetails(product?.id, data));
   };
 
   return (
@@ -39,16 +59,24 @@ export const productEdit = () => {
             picture={product.picture}
             company={product.company}
             user={product.user}
+            description={product.description}
+            name={product.name}
+            onSubmit={handleInfoSubmission}
+            isSubmitting={productInfoUpdating}
           />
-          <EditProductVideo onSubmit={handleSubmission} video={product.video} />
+          <EditProductVideo
+            onSubmit={handleVideoSubmission}
+            video={product.video}
+            isSubmitting={productVideoUpdating}
+          />
           <EditOfferDetails
             businessModels={product.businessModels}
             investmentEffort={product.investmentEffort}
             trl={product.trl}
             type={product.type.name}
             trlList={trlList}
-            isSubmitting={productUpdating}
-            onSubmit={handleSubmission}
+            isSubmitting={productOfferDetailsUpdating}
+            onSubmit={handleOfferDetailsSubmission}
           />
         </div>
       )}
