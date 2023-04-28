@@ -11,7 +11,7 @@ export const OfferedBy = ({ company, user, withMap }: OfferedByProps) => {
   return (
     <div className='p-lg'>
       <h2>Offered by</h2>
-      <img src={company.logo} className='mb-2.5 max-w-[400px] lg:w-full' />
+      <img src={company.logo} className='mb-2.5 max-w-[400px] lg:w-full lg:max-w-[250px]' />
       {hasUserSection && <User company={company} user={user} />}
       <Address company={company} />
       {withMap && (
