@@ -36,6 +36,10 @@
 }
 
 @layer base {
+  :root {
+    --color-primary: #272E71;
+  }
+
   body {
     font-family: "Open Sans", sans-serif;
     @apply leading-6 font-normal text-sm text-color-gray-default bg-gray-50;
@@ -80,11 +84,11 @@
   }
 
   .btn {
-    @apply flex justify-center items-center px-2.5 py-1 bg-color-primary/80 rounded-md disabled:opacity-50 disabled:pointer-events-none;
+    @apply flex justify-center items-center px-2.5 py-1 bg-color-primary rounded-md disabled:opacity-50 disabled:pointer-events-none;
   }
 
   .btn_primary {
-    @apply bg-color-primary/80 text-white;
+    @apply bg-color-primary text-white opacity-80;
   }
 
   .btn_secondary {

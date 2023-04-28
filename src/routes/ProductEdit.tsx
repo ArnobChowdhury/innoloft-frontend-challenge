@@ -48,7 +48,7 @@ export const ProductEdit = () => {
     <div className='space-y-5'>
       <div className='flex justify-between col-span-3'>
         <BreadCrumb location={pathname} />
-        <Link to='/product' className='btn btn_primary bg-color-primary'>
+        <Link to='/product' className='btn btn_primary bg-color-primary opacity-100'>
           View Offer
         </Link>
       </div>

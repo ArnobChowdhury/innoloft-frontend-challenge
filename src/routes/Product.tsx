@@ -17,7 +17,7 @@ import { BreadCrumb } from "../components";
  * 8. ////Make the Header with all the icons
  * 9. ////Make all the composites for edit page
  * 10. ////Add form handler in the edit page - react hook form - controlled components
- * 11. White labeling
+ * 11. ////White labeling
  * 12. //// Eslint and Formating
  * 13. What if the fetch goes wrong, we need to handle error better
  * 14. Media queries
@@ -38,7 +38,7 @@ const Product = () => {
     <div className='grid grid-cols-3 space-y-5'>
       <div className='flex justify-between col-span-3'>
         <BreadCrumb location={location.pathname} />
-        <Link to='/product/edit' className='btn btn_primary bg-color-primary'>
+        <Link to='/product/edit' className='btn btn_primary bg-color-primary opacity-100'>
           Edit
         </Link>
       </div>
