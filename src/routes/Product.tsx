@@ -21,7 +21,7 @@ import { BreadCrumb } from "../components";
  * 12. //// Eslint and Formating
  * 13. What if the fetch goes wrong, we need to handle error better
  * 14. Media queries
- * 15. Fix image in both product and edit page
+ * 15. ////Fix image in both product and edit page
  */
 
 const Product = () => {

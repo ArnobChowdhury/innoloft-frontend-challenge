@@ -1,4 +1,4 @@
-import { Button, RichText } from "../components";
+import { Button, RichText, Image } from "../components";
 import { Check } from "../icons";
 import { OfferedBy } from "./";
 import { EditProductInfoProps, ProductInfoProps } from "../types";
@@ -27,9 +27,7 @@ export const EditProductInfo = ({
   return (
     <div className='grid grid-cols-3 col-span-3 bg-white border border-color-gray-light rounded-md'>
       <div className='col-span-2'>
-        <div className='h-[300px] flex justify-center'>
-          <img src={picture} className='h-full' alt='product video' />
-        </div>
+        <Image picture={picture} isEdit />
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='p-lg space-y-2.5'>
             <input

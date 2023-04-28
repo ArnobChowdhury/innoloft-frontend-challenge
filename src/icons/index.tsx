@@ -15,3 +15,5 @@ export { RightArrow } from "./RightArrow";
 export { SearchIcon } from "./SearchIcon";
 export { Messenger } from "./Messenger";
 export { Notification } from "./Notification";
+export { PatentIcon } from "./PatentIcon";
+export { Bin } from "./Bin";

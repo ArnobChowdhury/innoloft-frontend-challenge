@@ -10,3 +10,4 @@ export { Button } from "./Button";
 export { RichText } from "./RichText";
 export { BreadCrumb } from "./BreadCrumb";
 export { Search } from "./Search";
+export { Image } from "./Image";
