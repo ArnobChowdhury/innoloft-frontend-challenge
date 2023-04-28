@@ -12,3 +12,4 @@ export { Close } from "./Close";
 export { Check } from "./Check";
 export { Loader } from "./Loader";
 export { RightArrow } from "./RightArrow";
+export { SearchIcon } from "./SearchIcon";

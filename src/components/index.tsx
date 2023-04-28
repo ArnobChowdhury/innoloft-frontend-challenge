@@ -9,3 +9,4 @@ export { Select } from "./Select";
 export { Button } from "./Button";
 export { RichText } from "./RichText";
 export { BreadCrumb } from "./BreadCrumb";
+export { Search } from "./Search";
