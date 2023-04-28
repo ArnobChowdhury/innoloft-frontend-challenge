@@ -28,12 +28,9 @@ const router = createBrowserRouter([
 ]);
 
 const APP_ID = import.meta.env.VITE_APP_ID || 1;
-console.log(import.meta.env.VITE_APP_ID);
-console.log(APP_ID);
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 axios.post(`https://api-test.innoloft.com/configuration/${APP_ID}/`).then((res) => {
-  console.log(res.data);
   store.dispatch(appConfigSuccessful(res.data));
   document.documentElement.style.setProperty("--color-primary", res.data.mainColor);
 

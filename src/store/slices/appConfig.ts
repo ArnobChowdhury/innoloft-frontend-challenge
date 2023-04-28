@@ -19,7 +19,6 @@ export const appConfigurationSlice = createSlice({
   initialState,
   reducers: {
     appConfigSuccessful: (state, action: PayloadAction<AppConfigProps>) => {
-      console.log("Action.payload", action.payload);
       state.id = action.payload.id;
       state.logo = action.payload.logo;
       state.mainColor = action.payload.mainColor;

@@ -1,9 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation, Link } from "react-router-dom";
 import { Menu, HeaderMenu } from "../composites";
 import { Search } from "../components";
 import { Logo } from "../icons";
 
-const Naivgation = () => {
+const HOME = "/";
+
+const Main = () => {
+  const { pathname } = useLocation();
   return (
     <div>
       <nav className='bg-color-primary'>
@@ -22,6 +25,16 @@ const Naivgation = () => {
           <Menu />
         </div>
         <div className='lg:col-span-3 '>
+          {pathname === HOME && (
+            <div className='flex space-x-lg'>
+              <Link to='/product' className='btn btn_primary opacity-100'>
+                Go to product page
+              </Link>
+              <Link to='/product/edit' className='btn btn_primary opacity-100'>
+                Go to edit product page
+              </Link>
+            </div>
+          )}
           <Outlet />
         </div>
       </div>
@@ -29,4 +42,4 @@ const Naivgation = () => {
   );
 };
 
-export default Naivgation;
+export default Main;
