@@ -1,4 +1,6 @@
 import { Home, Members, Organizations, DownArrow } from "../icons";
+import { User } from "../components";
+import { useAppSelector } from "../hooks";
 
 const MenuItem = ({
   text,
@@ -19,8 +21,11 @@ const MenuItem = ({
 );
 
 export const Menu = () => {
+  const { product } = useAppSelector((state) => state.product);
+
   return (
     <div>
+      {product && <User isImgBigger company={product.company} user={product.user} />}
       <MenuItem leftIcon={<Home />} text='Home' />
       <MenuItem leftIcon={<Members />} text='Members' />
       <MenuItem leftIcon={<Organizations />} text='Organizations' rightIcon={<DownArrow />} />
