@@ -7,3 +7,4 @@ export { EditProductInfo } from "./EditProductInfo";
 export { EditProductVideo } from "./EditProductVideo";
 export { EditOfferDetails } from "./EditOfferDetails";
 export { Shimmer } from "./Shimmer";
+export { HeaderMenu } from "./HeaderMenu";

@@ -13,3 +13,5 @@ export { Check } from "./Check";
 export { Loader } from "./Loader";
 export { RightArrow } from "./RightArrow";
 export { SearchIcon } from "./SearchIcon";
+export { Messenger } from "./Messenger";
+export { Notification } from "./Notification";

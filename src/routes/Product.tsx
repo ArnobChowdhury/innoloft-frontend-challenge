@@ -14,7 +14,7 @@ import { BreadCrumb } from "../components";
  * 5. ////Add all the shimmers for both the product and edit page
  * 6. ////Make the edit page
  * 7. //// Make the breadcrumb
- * 8. Make the Header with all the icons
+ * 8. ////Make the Header with all the icons
  * 9. ////Make all the composites for edit page
  * 10. ////Add form handler in the edit page - react hook form - controlled components
  * 11. White labeling
