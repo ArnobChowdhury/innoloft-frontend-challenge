@@ -14,7 +14,7 @@ export const EditProductVideo = ({ video, onSubmit, isSubmitting }: EditProductV
   });
 
   return (
-    <div className='col-span-3 p-lg border border-color-gray-light bg-white rounded-md space-y-lg'>
+    <div className='p-lg border border-color-gray-light bg-white rounded-md space-y-lg'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Video</h2>
         <div className='flex'>

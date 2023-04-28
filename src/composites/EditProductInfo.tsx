@@ -25,8 +25,8 @@ export const EditProductInfo = ({
   const quirllRef = useRef<ReactQuill>(null);
 
   return (
-    <div className='grid grid-cols-3 col-span-3 bg-white border border-color-gray-light rounded-md'>
-      <div className='col-span-2'>
+    <div className='grid grid-cols-3 bg-white border border-color-gray-light rounded-md'>
+      <div className='col-span-3 lg:col-span-2'>
         <Image picture={picture} isEdit />
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='p-lg space-y-2.5'>
@@ -67,7 +67,9 @@ export const EditProductInfo = ({
           </div>
         </form>
       </div>
-      <OfferedBy company={company} user={user} />
+      <div className='col-span-3 lg:col-span-1 lg:border-l lg:border-color-gray-light'>
+        <OfferedBy company={company} user={user} />
+      </div>
     </div>
   );
 };

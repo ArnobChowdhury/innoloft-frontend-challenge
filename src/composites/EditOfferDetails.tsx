@@ -25,10 +25,10 @@ export const EditOfferDetails = (props: EditOfferDetailsComponentProps) => {
   });
 
   return (
-    <div className='col-span-3 p-lg border border-color-gray-light bg-white rounded-md space-y-lg'>
+    <div className='p-lg border border-color-gray-light bg-white rounded-md space-y-lg'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Offer details</h2>
-        <div className='grid grid-cols-2 mb-lg'>
+        <div className='lg:grid lg:grid-cols-2 mb-lg'>
           <ItemDetailWithIcon
             icon={<Settings />}
             items={
@@ -43,7 +43,7 @@ export const EditOfferDetails = (props: EditOfferDetailsComponentProps) => {
                 />
               </>
             }
-            tailWindClasses='grow mr-1'
+            tailWindClasses='grow mb-lg lg:mr-1'
           />
           <ItemDetailWithIcon
             icon={<Knight />}
@@ -58,7 +58,7 @@ export const EditOfferDetails = (props: EditOfferDetailsComponentProps) => {
             tailWindClasses='grow ml-1'
           />
         </div>
-        <div className='grid grid-cols-2 mb-lg'>
+        <div className='lg:grid lg:grid-cols-2 mb-lg'>
           <ItemDetailWithIcon
             icon={<Clock />}
             items={
@@ -67,7 +67,7 @@ export const EditOfferDetails = (props: EditOfferDetailsComponentProps) => {
                 <Select value={trl} control={control} options={trlList} name='trl' />
               </>
             }
-            tailWindClasses='grow mr-1'
+            tailWindClasses='grow mb-lg mr-1'
           />
           <ItemDetailWithIcon
             icon={<Currency />}

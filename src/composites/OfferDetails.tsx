@@ -44,7 +44,9 @@ export const OfferDetails = ({
     <ItemDetailWithIcon items={technologyChips} icon={<Settings />} tailWindClasses='mb-lg' />
   );
 
-  const trlComponent = <ItemDetailWithIcon items={trlChips} icon={<Clock />} />;
+  const trlComponent = (
+    <ItemDetailWithIcon items={trlChips} icon={<Clock />} tailWindClasses='mb-lg lg:mb-0' />
+  );
   const businessModelComponent = (
     <ItemDetailWithIcon items={businessModelChips} icon={<Knight />} tailWindClasses='mb-lg' />
   );
@@ -52,14 +54,14 @@ export const OfferDetails = ({
   const costComponent = <ItemDetailWithIcon items={costChips} icon={<Currency />} />;
 
   return (
-    <div className='col-span-3 p-lg mb-10 border-solid border-gray-light border rounded-md  bg-white'>
+    <div className='p-lg bg-white border-solid border-gray-light border rounded-md'>
       <h2>Offer details</h2>
       <div>
-        <div className='grid grid-cols-2'>
+        <div className='lg:grid lg:grid-cols-2 lg:space-x-lg'>
           {technologyComponent}
           {businessModelComponent}
         </div>
-        <div className='grid grid-cols-2'>
+        <div className='lg:grid lg:grid-cols-2 lg:space-x-lg'>
           {trlComponent}
           {costComponent}
         </div>

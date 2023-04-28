@@ -5,8 +5,8 @@ import DOMPurify from "isomorphic-dompurify";
 
 export const ProductInfo = ({ picture, description, name, company, user }: ProductInfoProps) => {
   return (
-    <div className='col-span-3 grid grid-cols-3 rounded-md bg-white border border-color-gray-light overflow-hidden'>
-      <div className='col-span-2 border-solid'>
+    <div className='grid grid-cols-3 rounded-md bg-white border border-color-gray-light overflow-hidden'>
+      <div className='col-span-3 lg:col-span-2 border-solid'>
         <Image picture={picture} />
         <div className='p-lg'>
           <h1 className='mb-2.5'>{name}</h1>
@@ -18,7 +18,9 @@ export const ProductInfo = ({ picture, description, name, company, user }: Produ
           />
         </div>
       </div>
-      <OfferedBy company={company} user={user} withMap />
+      <div className='col-span-3 lg:col-span-1 lg:border-l lg:border-color-gray-light'>
+        <OfferedBy company={company} user={user} withMap />
+      </div>
     </div>
   );
 };

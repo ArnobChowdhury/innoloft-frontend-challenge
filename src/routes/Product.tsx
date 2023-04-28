@@ -20,7 +20,7 @@ import { BreadCrumb } from "../components";
  * 11. ////White labeling
  * 12. //// Eslint and Formating
  * 13. What if the fetch goes wrong, we need to handle error better
- * 14. Media queries
+ * 14. ////Media queries
  * 15. ////Fix image in both product and edit page
  */
 
@@ -45,20 +45,26 @@ const Product = () => {
       {!product && <Shimmer />}
       {product && (
         <>
-          <ProductInfo
-            name={product.name}
-            company={product.company}
-            description={product.description}
-            picture={product.picture}
-            user={product.user}
-          />
-          <ProductVideo video={product.video} />
-          <OfferDetails
-            type={product.type}
-            trl={product.trl}
-            businessModels={product.businessModels}
-            investmentEffort={product.investmentEffort}
-          />
+          <div className='col-span-3'>
+            <ProductInfo
+              name={product.name}
+              company={product.company}
+              description={product.description}
+              picture={product.picture}
+              user={product.user}
+            />
+          </div>
+          <div className='col-span-3'>
+            <ProductVideo video={product.video} />
+          </div>
+          <div className='col-span-3'>
+            <OfferDetails
+              type={product.type}
+              trl={product.trl}
+              businessModels={product.businessModels}
+              investmentEffort={product.investmentEffort}
+            />
+          </div>
         </>
       )}
     </div>

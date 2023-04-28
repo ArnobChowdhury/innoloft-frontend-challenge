@@ -55,29 +55,35 @@ export const ProductEdit = () => {
       {loading && <Shimmer />}
       {!loading && product && trlList && (
         <div className='grid grid-cols-3 space-y-lg'>
-          <EditProductInfo
-            picture={product.picture}
-            company={product.company}
-            user={product.user}
-            description={product.description}
-            name={product.name}
-            onSubmit={handleInfoSubmission}
-            isSubmitting={productInfoUpdating}
-          />
-          <EditProductVideo
-            onSubmit={handleVideoSubmission}
-            video={product.video}
-            isSubmitting={productVideoUpdating}
-          />
-          <EditOfferDetails
-            businessModels={product.businessModels}
-            investmentEffort={product.investmentEffort}
-            trl={product.trl}
-            type={product.type.name}
-            trlList={trlList}
-            isSubmitting={productOfferDetailsUpdating}
-            onSubmit={handleOfferDetailsSubmission}
-          />
+          <div className='col-span-3'>
+            <EditProductInfo
+              picture={product.picture}
+              company={product.company}
+              user={product.user}
+              description={product.description}
+              name={product.name}
+              onSubmit={handleInfoSubmission}
+              isSubmitting={productInfoUpdating}
+            />
+          </div>
+          <div className='col-span-3'>
+            <EditProductVideo
+              onSubmit={handleVideoSubmission}
+              video={product.video}
+              isSubmitting={productVideoUpdating}
+            />
+          </div>
+          <div className='col-span-3'>
+            <EditOfferDetails
+              businessModels={product.businessModels}
+              investmentEffort={product.investmentEffort}
+              trl={product.trl}
+              type={product.type.name}
+              trlList={trlList}
+              isSubmitting={productOfferDetailsUpdating}
+              onSubmit={handleOfferDetailsSubmission}
+            />
+          </div>
         </div>
       )}
     </div>

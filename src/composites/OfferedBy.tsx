@@ -9,9 +9,9 @@ interface OfferedByProps extends OfferedByPropsFromProduct {
 export const OfferedBy = ({ company, user, withMap }: OfferedByProps) => {
   const { hasUserSection } = useAppSelector((state) => state.appConfig);
   return (
-    <div className='p-lg border-l border-color-gray-light'>
+    <div className='p-lg'>
       <h2>Offered by</h2>
-      <img src={company.logo} className='mb-2.5' />
+      <img src={company.logo} className='mb-2.5 max-w-[400px] lg:w-full' />
       {hasUserSection && <User company={company} user={user} />}
       <Address company={company} />
       {withMap && (
